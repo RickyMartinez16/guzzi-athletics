@@ -232,7 +232,7 @@
               <div class="swiper-slide-cover bg-position-top-center" style="background-image: url(assets/img/landing/yoga-studio/hero/nick-st-johns-baseball-2021-05-10-t-00-51-59-154-z.jpg);"></div>
             </div>
             <div class="swiper-slide">
-              <div class="swiper-slide-cover swiper-slide-animate" style="background-image: url(assets/img/landing/yoga-studio/hero/IMG_1329.jpg); background-position: top center; background-size: cover; height: 100%;"></div>
+              <div class="swiper-slide-cover" style="background-image: url(assets/img/landing/yoga-studio/hero/IMG_1329.jpg); background-position: top right; background-size: cover; height: 100%;"></div>
             </div>
             <div class="swiper-slide">
               <div class="swiper-slide-cover bg-position-top-center" style="background-image: url(assets/img/landing/yoga-studio/hero/IMG_5925.jpg);"></div>
@@ -242,23 +242,31 @@
         </div>
         
         <style>
-          @media (max-width: 768px) {
-            .swiper-slide-animate {
-              animation: slideFromLeft 1s ease forwards;
+          @keyframes slideFromLeft {
+            0% {
+              background-position: top left;
             }
+            100% {
+              background-position: top right;
+            }
+          }
         
-            @keyframes slideFromLeft {
-              0% {
-                transform: translateX(-100%);
-                background-position: top left;
-              }
-              100% {
-                transform: translateX(0%);
-                background-position: top right;
-              }
+          @media (max-width: 768px) {
+            .animate-slide .swiper-slide-cover {
+              animation: slideFromLeft 1s ease-in-out forwards;
+            }
+          }
+        
+          /* Disable animation on larger screens */
+          @media (min-width: 769px) {
+            .animate-slide .swiper-slide-cover {
+              background-position: top right; /* Ensure the final position is set for larger screens */
+              animation: none;
             }
           }
         </style>
+        
+        
         
         
         
